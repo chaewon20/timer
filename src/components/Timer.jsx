@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Time from './Time';
 import pot from '../flowerPot/화분.png';
 
+
 const Wrapper = styled.div`
     width: 200px;
     height: 200px;
@@ -45,6 +46,7 @@ const Div = styled.div`
 class Timer extends React.Component{
     constructor(props){
         super(props);
+
         this.state = {
             sec : 0,
             min : 0,
@@ -53,12 +55,16 @@ class Timer extends React.Component{
     }
 
 
-    tick(){
-        const element = (
-        <div>{this.state.min}분 {this.state.sec}초</div>
-        )
-        React.ReactDOM.render(element, document.getElementById('time'));
-    }
+    // tick(){
+    //     let t = this.state.min * 60 + this.state.sec;
+    //     let ID = setInterval(()=> {
+    //         t = t-1; 
+
+    //         }
+
+
+    //     }, 1000)
+    // }
     changeSec = e => {
         this.setState({sec : parseInt(e.target.value)});
     }
@@ -67,7 +73,7 @@ class Timer extends React.Component{
     }
     start = () => {
         this.setState({doing : 1});
-        setInterval(tick, 1000);
+        // setInterval(tick, 1000);
     }
 
 
@@ -79,7 +85,7 @@ class Timer extends React.Component{
                 {
                     this.state.doing?
                     <>
-                        <div id='time'></div>
+                        <Time time={this.state.min * 60 + this.state.sec} tick={this.tick}></Time>
                         
                     </>
                     :

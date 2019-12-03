@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Timer from './components/Timer';
 
+
 const Title = styled.h1`
     color: white;
     text-align: center;
